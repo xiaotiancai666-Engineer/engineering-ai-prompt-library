@@ -3,83 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="面向海外路桥工程管理人员的工程 AI 提示词库，支持提示词搜索、分类筛选和一键复制。">
   <title>工程 AI 提示词库</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>工程 AI 提示词库</h1>
-    <p>面向海外路桥工程人员的 AI 提示词管理网页</p>
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="eyebrow">Engineering AI Prompt Library</p>
+      <h1>工程 AI 提示词库</h1>
+      <p class="header-summary">面向海外路桥工程人员，沉淀合同分析、成本分析、监理英文沟通、Civil 3D 学习和汇报材料写作等高频工作提示词。</p>
+      <div class="header-notes" aria-label="产品特点">
+        <span>静态网页</span>
+        <span>本地可用</span>
+        <span>一键复制</span>
+      </div>
+    </div>
   </header>
 
-  <main>
-    <section class="search-section">
-      <input type="text" id="searchInput" placeholder="搜索提示词，例如：合同、成本、监理、Civil 3D">
+  <main class="page-shell">
+    <section class="toolbar" aria-labelledby="library-tools-title">
+      <div class="section-heading">
+        <p class="section-kicker">提示词检索</p>
+        <h2 id="library-tools-title">按关键词或工作类型快速定位</h2>
+      </div>
+
+      <label class="search-box" for="searchInput">
+        <span class="search-label">搜索提示词</span>
+        <input type="search" id="searchInput" placeholder="搜索标题、适用场景或提示词正文，例如：索赔、油耗、催批复、横断面" autocomplete="off">
+      </label>
+
+      <div class="category-section" aria-label="提示词分类筛选">
+        <button class="category-btn active" type="button" data-category="all">全部</button>
+        <button class="category-btn" type="button" data-category="contract">合同分析</button>
+        <button class="category-btn" type="button" data-category="cost">成本分析</button>
+        <button class="category-btn" type="button" data-category="consultant">监理英文沟通</button>
+        <button class="category-btn" type="button" data-category="civil3d">Civil 3D 学习</button>
+        <button class="category-btn" type="button" data-category="report">汇报材料</button>
+      </div>
+
+      <p class="result-status" id="resultStatus" aria-live="polite"></p>
     </section>
 
-    <section class="category-section">
-      <button class="category-btn active" data-category="all">全部</button>
-      <button class="category-btn" data-category="contract">合同分析</button>
-      <button class="category-btn" data-category="cost">成本分析</button>
-      <button class="category-btn" data-category="english">监理英文沟通</button>
-      <button class="category-btn" data-category="civil3d">Civil 3D 学习</button>
-      <button class="category-btn" data-category="report">汇报材料</button>
-    </section>
+    <section class="prompt-grid" id="promptGrid" aria-label="提示词卡片列表"></section>
 
-    <section class="prompt-grid" id="promptGrid">
-      <article class="prompt-card" data-category="contract">
-        <h2>合同条款分析助手</h2>
-        <p class="scenario">适用场景：质保金、付款条件、变更索赔、竣工证书分析。</p>
-        <pre class="prompt-text">你是一名海外基础设施项目合同商务分析助手，熟悉 FIDIC 合同逻辑、工程计量、付款、质保金、变更索赔和竣工移交流程。
-
-请根据我提供的合同条款和项目背景，分析以下问题：
-
-1. 先给出明确结论；
-2. 再列出支持结论的合同依据；
-3. 区分“强证据”“弱证据”“需要补充的证据”；
-4. 分析业主/监理可能反驳点；
-5. 给出我方下一步沟通策略；
-6. 不要编造合同中没有的内容；
-7. 如果资料不足，请明确写“此处需补充资料”。</pre>
-        <button class="copy-btn">复制提示词</button>
-      </article>
-
-      <article class="prompt-card" data-category="cost">
-        <h2>成本分析报告助手</h2>
-        <p class="scenario">适用场景：季度成本分析、工程量节超、分包成本分析。</p>
-        <pre class="prompt-text">你是一名海外道路工程项目责任成本分析助手。
-
-请根据我提供的工程量、分包成本、机械油耗、产值和进度资料，生成一段可直接放入季度成本分析报告的正式文字。
-
-要求：
-1. 语言符合工程项目内部经营分析报告；
-2. 先讲数据结果，再讲原因，再讲风险，再讲纠偏措施；
-3. 不夸大，不编造；
-4. 对缺失数据标注“此处数据需补充”；
-5. 保持文字务实，不要空话套话。</pre>
-        <button class="copy-btn">复制提示词</button>
-      </article>
-
-      <article class="prompt-card" data-category="english">
-        <h2>监理 WhatsApp 英文助手</h2>
-        <p class="scenario">适用场景：向监理提交资料、催批复、解释现场问题。</p>
-        <pre class="prompt-text">You are a bilingual civil engineering communication assistant for an overseas road project.
-
-Please rewrite the following Chinese message into concise WhatsApp English for the Consultant.
-
-Requirements:
-1. Polite but not weak;
-2. Short and clear;
-3. Use proper engineering terms;
-4. Do not overpromise;
-5. Suitable for site communication in Zanzibar/Tanzania.</pre>
-        <button class="copy-btn">复制提示词</button>
-      </article>
+    <section class="empty-state hidden" id="emptyState" aria-live="polite">
+      <h2>没有找到匹配的提示词</h2>
+      <p>请尝试更换关键词，或点击“全部”查看完整列表。</p>
     </section>
   </main>
 
-  <footer>
-    <p>Engineering AI Prompt Library｜持续沉淀工程人的 AI 工作方法</p>
+  <footer class="site-footer">
+    <p>工程 AI 提示词库｜为海外工程管理、商务合同、成本控制和技术学习场景提供可复制的工作模板。</p>
   </footer>
 
   <script src="script.js"></script>
