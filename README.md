@@ -1,2 +1,33 @@
-# engineering-ai-prompt-library
-AI prompt library for overseas civil engineering work
+# Engineering AI Prompt Library
+
+## 项目简介
+这是一个面向海外路桥工程人员的 AI 提示词库网页。
+
+主要用于沉淀以下工作场景中的 AI 提示词：
+- 合同条款分析
+- 成本分析报告
+- 监理英文沟通
+- 施工方案编写
+- Civil 3D 学习
+- 汇报材料整理
+
+## 项目目标
+把日常工程经验转化为可复用的 AI 提示词模板，提高工作效率，减少重复劳动。
+
+## 使用对象
+- 海外道路工程项目人员
+- 工程管理人员
+- 责任成本人员
+- 商务合同人员
+- 需要提升 AI 应用能力的工程人
+
+## 技术方式
+本项目先采用静态网页形式：
+- HTML
+- CSS
+- JavaScript
+
+后续可部署到 GitHub Pages。
+
+## 当前版本
+v0.1：项目基础结构搭建。
