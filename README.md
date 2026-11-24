@@ -16,6 +16,7 @@
   - 监理英文沟通
   - Civil 3D 学习
   - 汇报材料
+  - 工程三维可视化
 - 每个提示词以卡片形式展示，包含：
   - 标题
   - 适用场景
@@ -37,7 +38,8 @@
 │   ├── cost-analysis.md
 │   ├── consultant-english.md
 │   ├── civil3d.md
-│   └── report-writing.md
+│   ├── report-writing.md
+│   └── road-visualization.md   # 道路240讲两阶段制作提示词
 ├── docs/product-requirements.md # 产品需求文档
 ├── changelog.md                # 更新记录
 └── AGENTS.md                   # 项目协作与编码规则
@@ -51,6 +53,10 @@
 4. 点击分类按钮筛选提示词。
 5. 点击卡片中的“复制提示词”按钮，将提示词粘贴到 AI 工具中使用。
 
+## 道路工程技术三维可视化｜240讲
+
+在分类区选择“工程三维可视化”，即可复制两阶段提示词。先使用阶段一制作方案卡，收到“方案确认，出总图”后生成独立的00总图；收到“总图确认，继续”后使用阶段二按需生成分图、核查并交付ZIP。总图足够清晰时不强制拆图。完整模板见 [prompts/road-visualization.md](prompts/road-visualization.md)。课程期号及正式标题以已确认的目录为准。
+
 ## 静态部署
 
 本项目是纯静态网页，可部署到 GitHub Pages、Netlify、Vercel 静态站点或任意静态文件服务器。部署时只需要保留 HTML、CSS、JavaScript、文档和 prompts 目录即可。
@@ -63,4 +69,4 @@
 
 ## 当前版本
 
-v0.2：第一版可用产品，完成静态网页、提示词卡片、搜索、分类筛选、复制和基础文档。
+v0.3：新增工程三维可视化分类及道路240讲两阶段制作提示词。保留原有10张卡片，现共12张。
